@@ -18,15 +18,7 @@ custom_tokenizer = RegexpTokenizer(r'[^\n]+\n*')
 # def custom_tokenizer(text):
 
 def should_split_chunk(content: str) -> bool:
-    """
-    Kiểm tra xem một đoạn văn bản có cần được tách thành chunk riêng không.
-    
-    Args:
-        content (str): Nội dung cần kiểm tra
-        
-    Returns:
-        bool: True nếu cần tách chunk, False nếu không
-    """
+
     # Đếm số token trong nội dung
     token_count = num_tokens_from_string(content)
     

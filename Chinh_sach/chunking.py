@@ -18,15 +18,7 @@ custom_tokenizer = RegexpTokenizer(r'[^\n]+\n*')
 # def custom_tokenizer(text):
 
 def should_split_chunk(content: str) -> bool:
-    """
-    Kiểm tra xem một đoạn văn bản có cần được tách thành chunk riêng không.
-    
-    Args:
-        content (str): Nội dung cần kiểm tra
-        
-    Returns:
-        bool: True nếu cần tách chunk, False nếu không
-    """
+
     # Đếm số token trong nội dung
     token_count = num_tokens_from_string(content)
     
@@ -238,9 +230,7 @@ def recursive_split_chunk(chunk_id, chunk_content, max_tokens_per_chunk):
     return sub_chunks
 
 def recursive_chunk_markdown_with_token_limit(markdown_content, max_tokens_per_chunk=1024):
-    """
-    Chia markdown thành chunk theo heading và đệ quy chia nhỏ nếu vượt quá token limit.
-    """
+
     initial_chunks = chunk_markdown(markdown_content) # Chia chunk ban đầu theo heading
     final_chunks = {}
     for chunk_id, chunk_content in initial_chunks.items():
